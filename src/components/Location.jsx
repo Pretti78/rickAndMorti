@@ -47,7 +47,7 @@ const Location = () => {
 					<Characters resident={resident} key={resident} />
 				))}
 			</div>
-			<footer>Todos los derechos reservados Pretti Omar © </footer>
+			<footer>Todos los derechos reservados Pretti Omar D © </footer>
 		</div>
 	);
 };
