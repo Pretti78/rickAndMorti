@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
 
 const Characters = ({ resident }) => {
 	const [pj, setPj] = useState([]);
@@ -8,14 +9,19 @@ const Characters = ({ resident }) => {
 		axios.get(resident).then((res) => setPj(res.data));
 	}, []);
 
+	console.log(resident);
+
 	return (
-		<div className="Characters">
-			<h3 className="Status">{pj.status}</h3>
-			<img src={pj.image} className="Img-Perfil" />
-			<h2>Name:{pj.name}</h2>
-			<h3>Origin:{pj.origin?.name}</h3>
-			<h3>Episode:{pj.episode?.length}</h3>
-		</div>
+		<Card style={{ width: '25rem', margin: '1rem' }} border="success">
+			<Card.Img variant="top" src={pj.image} />
+			<Card.Body>
+				<h4 className="Status">status: {pj.status}</h4>
+				<br />
+				<Card.Title style={{ fontSize: '2rem' }}>{pj.name}</Card.Title>
+				<Card.Text>Species:{pj.species}</Card.Text>
+				<Card.Text>Episode:{pj.episode?.length}</Card.Text>
+			</Card.Body>
+		</Card>
 	);
 };
 

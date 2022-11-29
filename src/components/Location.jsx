@@ -1,5 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import {
+	Button,
+	Col,
+	Form,
+	InputGroup,
+	ListGroup,
+	Pagination,
+	Row,
+} from 'react-bootstrap';
 import Characters from './Characters';
 
 const Location = () => {
@@ -24,30 +33,64 @@ const Location = () => {
 	return (
 		<div className="Main">
 			<div className="header">
-				<h1 className="Tittle">Rick And Morty </h1>
-				<div className="Search-main">
-					<input
-						type="text"
+				<img
+					src="../../public/backImage.jpg"
+					alt=""
+					className="img-fluid"
+					style={{ height: '35rem', width: '100%' }}
+				/>
+				<InputGroup
+					className="mb-3 mx-auto"
+					style={{
+						width: '50rem',
+						height: '4rem',
+						marginTop: '1rem',
+					}}
+				>
+					<Form.Control
+						placeholder="find dimension between 1 and 126"
+						aria-label="find dimension between 1 and 126"
+						aria-describedby="basic-addon2"
 						value={locId}
 						onChange={(e) => setLocID(e.target.value)}
-						className="Search"
-					></input>
-					<button onClick={searchLoc} className="Btn-Search">
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
+						style={{
+							fontSize: '2rem',
+						}}
+					/>
+					<Button
+						id="button-addon2"
+						onClick={searchLoc}
+						style={{ width: '5rem' }}
+					>
+						<i className="fa-solid fa-magnifying-glass"></i>
+					</Button>
+				</InputGroup>
+			</div>
+			<div>
+				<div className="container ">
+					<ListGroup horizontal className="my-2" style={{ fontSize: '1.5rem' }}>
+						<div className="mx-auto">
+							<ListGroup.Item>Dim: {location.dimension}</ListGroup.Item>
+							<ListGroup.Item>Name: {location.name}</ListGroup.Item>
+							<ListGroup.Item>
+								Population: {location.residents?.length}
+							</ListGroup.Item>
+						</div>
+					</ListGroup>
+				</div>
+				<div className="container">
+					<Row xs={1} md={2} lg={4}>
+						{location.residents?.map((resident) => (
+							<Col key={resident}>
+								<Characters resident={resident} key={resident} />
+							</Col>
+						))}
+					</Row>
 				</div>
 			</div>
-			<div className="Info-Dim">
-				<h3>Dim: {location.dimension}</h3>
-				<h3>Name: {location.name}</h3>
-				<h3>Poblation: {location.residents?.length}</h3>
-			</div>
-			<div className="List-Characters">
-				{location.residents?.map((resident) => (
-					<Characters resident={resident} key={resident} />
-				))}
-			</div>
-			<footer>Todos los derechos reservados Pretti Omar D © </footer>
+			<footer className="container">
+				<p className="col-md-3 mx-auto">All rights reserved Pretti Omar © </p>
+			</footer>
 		</div>
 	);
 };
