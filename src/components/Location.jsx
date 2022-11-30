@@ -1,4 +1,5 @@
 import axios from 'axios';
+import image from '../assets/img/backImage.jpg';
 import React, { useEffect, useState } from 'react';
 import {
 	Button,
@@ -34,7 +35,7 @@ const Location = () => {
 		<div className="Main">
 			<div className="header">
 				<img
-					src="../../public/backImage.jpg"
+					src={image}
 					alt=""
 					className="img-fluid"
 					style={{ height: '35rem', width: '100%' }}
