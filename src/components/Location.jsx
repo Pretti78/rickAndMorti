@@ -90,7 +90,13 @@ const Location = () => {
 				</div>
 			</div>
 			<footer className="container">
-				<p className="col-md-3 mx-auto">All rights reserved Pretti Omar © </p>
+				<a href="https://github.com/Pretti78">
+					<p className="col-md-3 mx-auto">check my GitHub</p>
+				</a>
+				<a href="https://www.linkedin.com/in/pretti-omar/">
+					<p className="col-md-3 mx-auto">check my Linkedin</p>
+				</a>
+				<p className="col-md-3 mx-auto">All rights reserved Pretti Omar ©</p>
 			</footer>
 		</div>
 	);
